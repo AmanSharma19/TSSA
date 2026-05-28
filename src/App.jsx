@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { motion } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -42,6 +43,38 @@ function App() {
 
   return (
     <div className="app-container">
+      <div className="site-ambient-layer" aria-hidden="true">
+        <motion.div
+          className="ambient-orb orb-1"
+          animate={{
+            y: [0, -26, 0],
+            x: [0, 12, 0],
+            scale: [1, 1.12, 1],
+            opacity: [0.18, 0.34, 0.18]
+          }}
+          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <motion.div
+          className="ambient-orb orb-2"
+          animate={{
+            y: [0, 24, 0],
+            x: [0, -18, 0],
+            scale: [1, 1.2, 1],
+            opacity: [0.14, 0.28, 0.14]
+          }}
+          transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <motion.div
+          className="ambient-orb orb-3"
+          animate={{
+            y: [0, -18, 0],
+            x: [0, -28, 0],
+            opacity: [0.12, 0.24, 0.12]
+          }}
+          transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <div className="ambient-grid" />
+      </div>
       <div id="crosshair" className="crosshair-cursor">
         <div className="horizontal"></div>
         <div className="vertical"></div>

@@ -19,17 +19,14 @@ const StatItem = ({ endValue, label, suffix = "" }) => {
   useEffect(() => {
     if (!hasStarted) return;
     let start = 0;
-    const duration = 2000; // 2 seconds
+    const duration = 2000;
     const startTime = performance.now();
 
     const animate = (currentTime) => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      
-      // easeOutExpo easing function
       const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
       const currentVal = Math.floor(easeProgress * endValue);
-      
       setValue(currentVal);
 
       if (progress < 1) {
@@ -43,20 +40,24 @@ const StatItem = ({ endValue, label, suffix = "" }) => {
   }, [hasStarted, endValue]);
 
   return (
-    <div ref={ref} className="glass" style={{ padding: '30px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
-      {hasStarted && (
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.05 }}
-          transition={{ duration: 1 }}
-          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'radial-gradient(circle, var(--accent-gold) 0%, transparent 70%)', pointerEvents: 'none' }}
-        />
-      )}
+    <motion.div
+      ref={ref}
+      className="glass motion-card"
+      whileHover={{ y: -10, rotateX: 3, rotateY: -3 }}
+      transition={{ type: 'spring', stiffness: 260, damping: 18 }}
+      style={{ padding: '30px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}
+    >
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.08 }}
+        transition={{ duration: 1.1 }}
+        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'radial-gradient(circle, var(--accent-gold) 0%, transparent 70%)', pointerEvents: 'none' }}
+      />
       <h3 className="text-gold" style={{ fontSize: '3rem', margin: 0, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <span>{value}</span>{suffix}
       </h3>
       <p className="text-muted" style={{ textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.8rem', marginTop: '10px' }}>{label}</p>
-    </div>
+    </motion.div>
   );
 };
 
@@ -71,6 +72,15 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
+            <motion.div
+              className="hero-elite-chip"
+              style={{ marginBottom: '20px', display: 'inline-flex' }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              Legacy • Precision • Performance
+            </motion.div>
             <h2 className="text-gold" style={{ fontSize: '3rem' }}>Our Legacy</h2>
             <p className="text-muted" style={{ marginBottom: '20px', fontSize: '1.1rem' }}>
               Founded with the singular vision of forging champions, Target Sports Shooting Academy combines elite infrastructure with world-class coaching. We distill the art of shooting into science, precision, and unyielding discipline.

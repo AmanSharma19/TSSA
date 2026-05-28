@@ -8,8 +8,6 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      
-      // Dynamic active section detection on scroll
       const sections = ['home', 'about', 'programs', 'virtual-range', 'team', 'gallery', 'contact'];
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
@@ -70,9 +68,10 @@ const Navbar = () => {
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
             return (
-              <a 
+              <motion.a 
                 key={link.id} 
                 href={`#${link.id}`} 
+                whileHover={{ scale: 1.08, y: -2, color: 'var(--accent-gold)' }}
                 style={{ 
                   color: isActive ? 'var(--accent-gold)' : '#ffffff', 
                   textDecoration: 'none', 
@@ -82,7 +81,8 @@ const Navbar = () => {
                   fontWeight: isActive ? 600 : 400,
                   position: 'relative',
                   padding: '5px 0',
-                  transition: 'color 0.2s ease'
+                  transition: 'color 0.2s ease',
+                  display: 'inline-flex'
                 }}
               >
                 {link.label}
@@ -101,7 +101,7 @@ const Navbar = () => {
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
                 )}
-              </a>
+              </motion.a>
             );
           })}
         </div>

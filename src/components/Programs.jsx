@@ -33,6 +33,15 @@ const Programs = () => {
       <div className="glow-bg" style={{ top: '40%', left: '50%', transform: 'translate(-50%, -50%)', background: 'rgba(201, 168, 76, 0.1)' }}></div>
       <div className="container">
         <div className="text-center" style={{ marginBottom: '60px' }}>
+          <motion.div
+            className="hero-elite-chip"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            style={{ margin: '0 auto 20px', display: 'inline-flex' }}
+          >
+            Course paths • performance labs • athlete support
+          </motion.div>
           <h2 style={{ fontSize: '3rem' }}>Training <span className="text-gold">Programs</span></h2>
           <p className="text-muted">Structured curriculum for every skill level, designed for pure accuracy.</p>
         </div>
@@ -49,28 +58,31 @@ const Programs = () => {
               key={index}
               variants={cardVariants}
               whileHover={{ 
-                y: -10, 
+                y: -12, 
                 scale: 1.025,
-                borderColor: 'rgba(201,168,76,0.3)',
-                boxShadow: '0 15px 35px rgba(201, 168, 76, 0.12)'
+                borderColor: 'rgba(201,168,76,0.35)',
+                boxShadow: '0 18px 40px rgba(201, 168, 76, 0.16)'
               }}
-              className="glass"
+              className="glass motion-card"
               style={{ 
                 padding: '45px 25px', 
                 textAlign: 'center', 
                 cursor: 'pointer',
-                transition: 'border-color 0.3s, box-shadow 0.3s'
+                transition: 'border-color 0.3s, box-shadow 0.3s',
+                position: 'relative',
+                overflow: 'hidden'
               }}
             >
               <motion.div 
-                style={{ marginBottom: '22px', display: 'flex', justifyContent: 'center' }}
+                className="program-icon"
+                style={{ marginBottom: '22px', display: 'flex', justifyContent: 'center', position: 'relative', zIndex: 1 }}
                 whileHover={{ rotate: [0, -10, 10, 0] }}
                 transition={{ duration: 0.5 }}
               >
                 {prog.icon}
               </motion.div>
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '15px', fontWeight: 600 }}>{prog.title}</h3>
-              <p className="text-muted" style={{ fontSize: '0.95rem', lineHeight: 1.5 }}>{prog.desc}</p>
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '15px', fontWeight: 600, position: 'relative', zIndex: 1 }}>{prog.title}</h3>
+              <p className="text-muted" style={{ fontSize: '0.95rem', lineHeight: 1.5, position: 'relative', zIndex: 1 }}>{prog.desc}</p>
             </motion.div>
           ))}
         </motion.div>
