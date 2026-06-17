@@ -49,7 +49,7 @@ const Hero = () => {
   };
 
   const heroBadges = [
-    { label: '12 lane premium range', accent: 'gold' },
+    { label: '5 lanes premium range', accent: 'gold' },
     { label: 'Live shot analytics', accent: 'blue' },
     { label: 'Olympic coaching', accent: 'gold' }
   ];
@@ -83,7 +83,7 @@ const Hero = () => {
         style={{ 
           bottom: '10%', 
           right: '10%', 
-          background: 'rgba(0, 119, 255, 0.12)',
+          background: 'rgba(201, 168, 76, 0.12)',
           x: bgGlowX2,
           y: bgGlowY2
         }}

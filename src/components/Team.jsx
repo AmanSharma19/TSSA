@@ -10,12 +10,6 @@ const teamData = [
     image: headCoachImage
   },
   {
-    name: "Elena Rostova",
-    role: "Competitive Shooting Coach",
-    bio: "Two-time Olympic gold medalist. Her analytical approach breaks down every micro-movement for perfect shots.",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&q=80"
-  },
-  {
     name: "Victor Vance",
     role: "Founder & Director",
     bio: "Visionary behind the academy. Victor built TSSA to create a sanctuary for pure, unadulterated marksmanship excellence.",
@@ -41,7 +35,7 @@ const Team = () => {
           <p className="text-muted">Learn from the absolute best in the industry.</p>
         </div>
         
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-2 gap-6" style={{ maxWidth: '980px', margin: '0 auto' }}>
           {teamData.map((member, index) => (
             <motion.div 
               key={index}
@@ -51,7 +45,7 @@ const Team = () => {
               transition={{ duration: 0.6, delay: index * 0.2 }}
               whileHover={{ y: -10, rotateY: -2, boxShadow: '0 24px 60px rgba(201, 168, 76, 0.16)' }}
               className="glass group motion-card"
-              style={{ overflow: 'hidden', padding: '20px', position:'relative' }}
+              style={{ overflow: 'hidden', padding: '20px', position:'relative', width: '100%', maxWidth: '420px', margin: '0 auto' }}
             >
               <div className="img-wrapper" style={{ height: '300px', marginBottom: '20px', position: 'relative' }}>
                 <img src={member.image} alt={member.name} className="cinematic-img" />

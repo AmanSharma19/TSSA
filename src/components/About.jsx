@@ -97,10 +97,10 @@ const About = () => {
             transition={{ duration: 0.8 }}
             className="grid grid-cols-2 gap-4"
           >
-            <StatItem endValue={15} label="Years Experience" suffix="+" />
-            <StatItem endValue={5000} label="Students Trained" suffix="+" />
-            <StatItem endValue={120} label="Medals Won" />
-            <StatItem endValue={50} label="Firing Lanes" />
+            <StatItem endValue={10} label="Years Experience" suffix="+" />
+            <StatItem endValue={50} label="Students Trained" suffix="+" />
+            <StatItem endValue={5} label="Firing Lanes" />
+            <StatItem endValue={100} label="Contests Qualified" suffix="+" />
           </motion.div>
         </div>
       </div>

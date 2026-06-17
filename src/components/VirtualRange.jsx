@@ -295,7 +295,7 @@ const VirtualRange = () => {
     <section id="virtual-range" className="section" style={{ position: 'relative', overflow: 'hidden', background: 'var(--bg-primary)' }}>
       {/* Background grids and glowing assets */}
       <div className="glow-bg" style={{ bottom: '15%', left: '5%', background: 'rgba(201, 168, 76, 0.15)' }}></div>
-      <div className="glow-bg" style={{ top: '15%', right: '5%', background: 'rgba(0, 119, 255, 0.1)' }}></div>
+      <div className="glow-bg" style={{ top: '15%', right: '5%', background: 'rgba(201, 168, 76, 0.10)' }}></div>
       
       <div className="container">
         {/* Interactive Title & Header Controllers */}
