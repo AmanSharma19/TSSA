@@ -9,6 +9,24 @@ const images = [
   "https://images.unsplash.com/photo-1563299796-b729d0af5f05?auto=format&fit=crop&w=800&q=80"
 ];
 
+const gallerySections = [
+  {
+    title: "Coach's Achievements",
+    description: "Milestones, recognitions, and proud moments of our coaching team.",
+    images: images.slice(0, 2)
+  },
+  {
+    title: "Golden Moments",
+    description: "Celebrations, victories, and unforgettable highlights from the range.",
+    images: images.slice(1, 3)
+  },
+  {
+    title: "Academy Overview",
+    description: "A look at our infrastructure, training environment, and academy spirit.",
+    images: images.slice(2, 4)
+  }
+];
+
 const Gallery = () => {
   const [activeIdx, setActiveIdx] = useState(null);
 
@@ -30,46 +48,55 @@ const Gallery = () => {
           <p className="text-muted">A glimpse into the life and premium training facilities at the academy.</p>
         </div>
         
-        <div className="grid grid-cols-2" style={{ gap: '20px' }}>
-          {images.map((img, idx) => (
-            <motion.div 
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: idx * 0.15 }}
-              onClick={() => setActiveIdx(idx)}
-              className="img-wrapper group"
-              style={{ height: '350px', cursor: 'pointer', position: 'relative' }}
-              whileHover={{ scale: 1.02 }}
-            >
-              <img src={img} alt={`Gallery ${idx}`} className="cinematic-img" />
-              {/* Modern hover overlay to invite clicking */}
-              <div 
-                className="flex items-center justify-center"
-                style={{ 
-                  position: 'absolute', 
-                  top: 0, 
-                  left: 0, 
-                  width: '100%', 
-                  height: '100%', 
-                  background: 'rgba(201, 168, 76, 0.25)', 
-                  opacity: 0,
-                  transition: 'opacity 0.4s ease',
-                  pointerEvents: 'none',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  backdropFilter: 'blur(3px)'
-                }}
-                onMouseEnter={(e) => e.currentTarget.style.opacity = 1}
-                onMouseLeave={(e) => e.currentTarget.style.opacity = 0}
-              >
-                <div style={{ padding: '12px 24px', background: '#0a0a0a', border: '1px solid var(--accent-gold)', textTransform: 'uppercase', fontSize: '0.85rem', letterSpacing: '2px', fontWeight: 'bold' }}>
-                  Enlarge Target
-                </div>
+        <div style={{ display: 'grid', gap: '40px' }}>
+          {gallerySections.map((section, sectionIdx) => (
+            <div key={sectionIdx}>
+              <div style={{ marginBottom: '18px' }}>
+                <h3 className="text-gold" style={{ fontSize: '1.8rem', marginBottom: '6px' }}>{section.title}</h3>
+                <p className="text-muted" style={{ margin: 0 }}>{section.description}</p>
               </div>
-            </motion.div>
+              <div className="grid grid-cols-2" style={{ gap: '20px' }}>
+                {section.images.map((img, idx) => (
+                  <motion.div 
+                    key={`${sectionIdx}-${idx}`}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: (sectionIdx * 0.15) + (idx * 0.1) }}
+                    onClick={() => setActiveIdx(idx)}
+                    className="img-wrapper group"
+                    style={{ height: '300px', cursor: 'pointer', position: 'relative' }}
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <img src={img} alt={`${section.title} ${idx + 1}`} className="cinematic-img" />
+                    <div 
+                      className="flex items-center justify-center"
+                      style={{ 
+                        position: 'absolute', 
+                        top: 0, 
+                        left: 0, 
+                        width: '100%', 
+                        height: '100%', 
+                        background: 'rgba(201, 168, 76, 0.25)', 
+                        opacity: 0,
+                        transition: 'opacity 0.4s ease',
+                        pointerEvents: 'none',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        backdropFilter: 'blur(3px)'
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.opacity = 1}
+                      onMouseLeave={(e) => e.currentTarget.style.opacity = 0}
+                    >
+                      <div style={{ padding: '12px 24px', background: '#0a0a0a', border: '1px solid var(--accent-gold)', textTransform: 'uppercase', fontSize: '0.85rem', letterSpacing: '2px', fontWeight: 'bold' }}>
+                        View Gallery
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </div>
@@ -158,9 +185,10 @@ const Gallery = () => {
               transition={{ type: 'spring', damping: 25, stiffness: 220 }}
               onClick={(e) => e.stopPropagation()} // prevent modal close on image click
               style={{ 
-                width: '80%', 
+                width: '92vw',
                 maxWidth: '900px', 
-                height: '70%', 
+                height: '78vh',
+                maxHeight: '780px',
                 display: 'flex', 
                 alignItems: 'center', 
                 justifyContent: 'center',
@@ -183,7 +211,7 @@ const Gallery = () => {
                   style={{ 
                     width: '100%', 
                     height: '100%', 
-                    objectFit: 'cover' 
+                    objectFit: 'cover'
                   }}
                 />
               </AnimatePresence>

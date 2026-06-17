@@ -158,6 +158,9 @@ const Contact = () => {
                 onChange={handleChange}
               />
               <motion.button whileHover={{ y: -4, scale: 1.01 }} type="submit" className="btn btn-primary" style={{ marginTop: '10px' }}>Send Application</motion.button>
+              <p className="text-muted" style={{ marginTop: '10px', fontSize: '0.78rem', letterSpacing: '0.8px' }}>
+                Your details are used only for academy communication and are never shared publicly.
+              </p>
             </form>
           </motion.div>
 

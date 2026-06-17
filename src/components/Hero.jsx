@@ -60,12 +60,15 @@ const Hero = () => {
       onMouseMove={handleMouseMove}
       className="section" 
       style={{ 
-        height: '100vh', 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'center', 
-        overflow: 'hidden', 
-        position: 'relative' 
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        overflow: 'hidden',
+        position: 'relative',
+        paddingTop: '140px',
+        paddingBottom: '80px',
+        boxSizing: 'border-box'
       }}
     >
       <motion.div 
@@ -171,11 +174,26 @@ const Hero = () => {
             
             <motion.div 
               variants={itemVariants}
-              className="flex justify-center gap-8"
-              style={{ display: 'flex', justifyContent: 'flex-start', gap: '2rem', flexWrap: 'wrap' }}
+              className="hero-cta-group"
             >
-              <a href="#contact" className="btn btn-primary" style={{ padding: '14px 35px' }}>Join the Academy</a>
-              <a href="#virtual-range" className="btn" style={{ padding: '14px 35px' }}>Virtual Range</a>
+              <motion.a
+                href="#contact"
+                className="hero-cta-button hero-cta-button--primary"
+                whileHover={{ y: -2, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <span>Join the Academy</span>
+                <span className="hero-cta-arrow">→</span>
+              </motion.a>
+              <motion.a
+                href="#virtual-range"
+                className="hero-cta-button hero-cta-button--secondary"
+                whileHover={{ y: -2, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <span>Virtual Range</span>
+                <span className="hero-cta-arrow">↗</span>
+              </motion.a>
             </motion.div>
 
             <motion.div
@@ -206,6 +224,7 @@ const Hero = () => {
                 </motion.div>
               ))}
             </motion.div>
+
           </motion.div>
 
           <motion.div
@@ -221,7 +240,7 @@ const Hero = () => {
                 src={ownerImage}
                 alt="Chaman Lal Jangra"
                 className="owner-portrait"
-                style={{ width: '220px', height: '220px', objectFit: 'cover', borderRadius: '24px', border: '2px solid rgba(201,168,76,0.72)' }}
+                style={{ width: '290px', height: '290px', objectFit: 'cover', borderRadius: '24px', border: '2px solid rgba(201,168,76,0.72)' }}
               />
               <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '6px' }}>
                 <p className="text-gold" style={{ margin: 0, fontSize: '0.66rem', letterSpacing: '1.4px', textTransform: 'uppercase' }}>Founder & Mentor</p>

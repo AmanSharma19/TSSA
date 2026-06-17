@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,9 +22,19 @@ const Navbar = () => {
         }
       }
     };
+
+    const handleResize = () => {
+      if (window.innerWidth > 900) {
+        setMobileMenuOpen(false);
+      }
+    };
     
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const navLinks = [
@@ -54,15 +66,36 @@ const Navbar = () => {
         WebkitBackdropFilter: 'blur(12px)'
       }}
     >
-      <div className="container flex justify-between items-center" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div className="container flex justify-between items-center" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'relative' }}>
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
+          className="logo-text"
           style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', fontWeight: 700, letterSpacing: '2px', textShadow: '0 0 10px rgba(201, 168, 76, 0.1)' }}
         >
           TARGET SPORTS <span className="text-gold">SHOOTING</span>
         </motion.div>
+
+        <button
+          type="button"
+          className="mobile-nav-toggle"
+          aria-label="Toggle navigation"
+          onClick={() => setMobileMenuOpen((prev) => !prev)}
+          style={{
+            display: 'none',
+            alignItems: 'center',
+            justifyContent: 'center',
+            background: 'transparent',
+            border: '1px solid rgba(201, 168, 76, 0.3)',
+            borderRadius: '10px',
+            width: '44px',
+            height: '44px',
+            color: '#fff'
+          }}
+        >
+          {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
         
         <div className="flex gap-8 nav-links-container" style={{ display: 'flex', gap: '1.8rem', position: 'relative' }}>
           {navLinks.map((link) => {
@@ -106,6 +139,49 @@ const Navbar = () => {
           })}
         </div>
       </div>
+
+      {mobileMenuOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          style={{
+            position: 'absolute',
+            top: 'calc(100% + 10px)',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: 'calc(100% - 32px)',
+            background: 'rgba(10, 10, 10, 0.96)',
+            border: '1px solid rgba(201, 168, 76, 0.18)',
+            borderRadius: '12px',
+            padding: '12px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '8px',
+            zIndex: 101
+          }}
+        >
+          {navLinks.map((link) => (
+            <a
+              key={link.id}
+              href={`#${link.id}`}
+              onClick={() => setMobileMenuOpen(false)}
+              style={{
+                color: activeSection === link.id ? 'var(--accent-gold)' : '#fff',
+                textDecoration: 'none',
+                textTransform: 'uppercase',
+                letterSpacing: '1px',
+                fontSize: '0.9rem',
+                padding: '10px 12px',
+                borderRadius: '8px',
+                background: activeSection === link.id ? 'rgba(201, 168, 76, 0.08)' : 'transparent'
+              }}
+            >
+              {link.label}
+            </a>
+          ))}
+        </motion.div>
+      )}
     </motion.nav>
   );
 };

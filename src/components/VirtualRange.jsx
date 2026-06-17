@@ -411,7 +411,7 @@ const VirtualRange = () => {
           </button>
         </div>
 
-        <div className="grid grid-cols-2 gap-8 items-center" style={{ gridTemplateColumns: 'minmax(320px, 1fr) minmax(380px, 1.2fr)' }}>
+        <div className="grid grid-cols-2 gap-8 items-center virtual-range-layout">
           
           {/* DASHBOARD AND CONTROL WIDGET */}
           <motion.div 

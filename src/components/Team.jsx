@@ -1,19 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import headCoachImage from '../../pic_headcoach.png';
+import jrCoachImage from '../../pic_jrcoach.png';
 
 const teamData = [
   {
     name: "Gopal Jangra",
-    role: "Pistol & Rifle Coach",
-    bio: "Ex-military marksman with 10 years of combat training experience. Specializes in rapid precision and tactical maneuvers.",
+    role: "Head Coach (Rifle & Pistol)",
+    bio: "NIS certified coach with 10 years of experience in shooting sport, known for shaping disciplined shooters through expert technique, focus, and mentorship.",
     image: headCoachImage
   },
   {
-    name: "Victor Vance",
-    role: "Founder & Director",
-    bio: "Visionary behind the academy. Victor built TSSA to create a sanctuary for pure, unadulterated marksmanship excellence.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80"
+    name: "Mohit Jangra",
+    role: "Junior Coach (Rifle & Pistol)",
+    bio: "Visionary behind the academy. Mohit built TSSA to create a sanctuary for pure, unadulterated marksmanship excellence.",
+    image: jrCoachImage
   }
 ];
 
@@ -47,8 +48,13 @@ const Team = () => {
               className="glass group motion-card"
               style={{ overflow: 'hidden', padding: '20px', position:'relative', width: '100%', maxWidth: '420px', margin: '0 auto' }}
             >
-              <div className="img-wrapper" style={{ height: '300px', marginBottom: '20px', position: 'relative' }}>
-                <img src={member.image} alt={member.name} className="cinematic-img" />
+              <div className="img-wrapper" style={{ height: '280px', marginBottom: '20px', position: 'relative' }}>
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="cinematic-img"
+                  style={{ objectFit: 'cover', objectPosition: 'center 12%' }}
+                />
                 <div className="image-glow-overlay" />
               </div>
               <h3 style={{ fontSize: '1.5rem', marginBottom: '5px' }}>{member.name}</h3>
