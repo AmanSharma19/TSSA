@@ -13,7 +13,7 @@ const teamData = [
   {
     name: "Mohit Jangra",
     role: "Junior Coach (Rifle & Pistol)",
-    bio: "Visionary behind the academy. Mohit built TSSA to create a sanctuary for pure, unadulterated marksmanship excellence.",
+    bio: "A nationally recognized shooter with 6 years of experience, bringing strong technical skill, discipline, and practical mentorship to every training session.",
     image: jrCoachImage
   }
 ];
