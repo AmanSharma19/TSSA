@@ -13,6 +13,17 @@ assets/images/
 images/
 public/images/
 
+# Personal academy media and identity files
+coach_*.jpg
+coach_*.png
+shooter*.png
+player*.png
+profile*.png
+profile*.jpg
+personal-details/
+private-media/
+identity/
+
 # Personal or sensitive local files
 *.pdf
 *.doc
