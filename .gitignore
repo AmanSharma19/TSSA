@@ -1,2 +1,28 @@
 node_modules
 dist
+
+# Images and media
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.svg
+*.ico
+assets/images/
+images/
+public/images/
+
+# Personal or sensitive local files
+*.pdf
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.csv
+*.txt
+personal/
+private/
+secrets/
+.env
+.env.*
