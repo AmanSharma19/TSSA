@@ -2,8 +2,6 @@ node_modules
 dist
 
 # Images and media
-*.png
-*.jpg
 *.jpeg
 *.gif
 *.webp
@@ -13,18 +11,25 @@ assets/images/
 images/
 public/images/
 
-# Personal academy media and identity files
-coach_*.jpg
-coach_*.png
-shooter*.png
-player*.png
-profile*.png
-profile*.jpg
+# Keep the academy media files required for the site build
+!pic_owner.png
+!pic_headcoach.png
+!pic_jrcoach.png
+!shooter1.png
+!shooter2.png
+!shooter3.png
+!shooter4.png
+!shooter5.png
+!shooter6.png
+!shooter7.png
+!coach_achiv1.jpg
+!coach_achiv2.jpg
+!coach_achiv3.jpg
+
+# Personal or sensitive local files
 personal-details/
 private-media/
 identity/
-
-# Personal or sensitive local files
 *.pdf
 *.doc
 *.docx
