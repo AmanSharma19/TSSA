@@ -12,9 +12,6 @@ images/
 public/images/
 
 # Keep the academy media files required for the site build
-!pic_owner.png
-!pic_headcoach.png
-!pic_jrcoach.png
 !shooter1.png
 !shooter2.png
 !shooter3.png
@@ -27,6 +24,9 @@ public/images/
 !coach_achiv3.jpg
 
 # Personal or sensitive local files
+pic_owner.png
+pic_headcoach.png
+pic_jrcoach.png
 personal-details/
 private-media/
 identity/
