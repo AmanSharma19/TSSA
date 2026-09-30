@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ArrowLeft, ArrowRight } from 'lucide-react';
-import coachAchiv1 from '../../coach_achiv1.jpg';
-import coachAchiv2 from '../../coach_achiv2.jpg';
-import coachAchiv3 from '../../coach_achiv3.jpg';
-import shooter1 from '../../shooter1.png';
-import shooter2 from '../../shooter2.png';
-import shooter3 from '../../shooter3.png';
-import shooter4 from '../../shooter4.png';
-import shooter5 from '../../shooter5.png';
-import shooter6 from '../../shooter6.png';
-import shooter7 from '../../shooter7.png';
+const shooter1 = 'https://res.cloudinary.com/nap3orba/image/upload/v1790790987/shooter1.png';
+const shooter2 = 'https://res.cloudinary.com/nap3orba/image/upload/v1790790987/shooter2.png';
+const shooter3 = 'https://res.cloudinary.com/nap3orba/image/upload/v1790790987/shooter3.png';
+const shooter4 = 'https://res.cloudinary.com/nap3orba/image/upload/v1790790987/shooter4.png';
+const shooter5 = 'https://res.cloudinary.com/nap3orba/image/upload/v1790790986/shooter5.png';
+const shooter6 = 'https://res.cloudinary.com/nap3orba/image/upload/v1790790986/shooter6.png';
+const shooter7 = 'https://res.cloudinary.com/nap3orba/image/upload/v1790790987/shooter7.png';
+
+const coachAchiv1 = 'https://res.cloudinary.com/nap3orba/image/upload/v1790790984/coach_achiv1.jpg';
+const coachAchiv2 = 'https://res.cloudinary.com/nap3orba/image/upload/v1790790985/coach_achiv2.jpg';
+const coachAchiv3 = 'https://res.cloudinary.com/nap3orba/image/upload/v1790790985/coach_achiv3.jpg';
 
 const images = [
   "https://images.unsplash.com/photo-1595590424283-b8f1784cb2c8?auto=format&fit=crop&w=800&q=80",

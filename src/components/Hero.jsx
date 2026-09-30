@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
-import ownerImage from '../../pic_owner.png';
+
+const ownerImage = 'https://res.cloudinary.com/nap3orba/image/upload/v1790790986/pic_owner.png';
 
 const Hero = () => {
   const mouseX = useMotionValue(0);

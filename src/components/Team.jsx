@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import headCoachImage from '../../pic_headcoach.png';
-import jrCoachImage from '../../pic_jrcoach.png';
+
+const headCoachImage = 'https://res.cloudinary.com/nap3orba/image/upload/v1790790986/pic_headcoach.png';
+const jrCoachImage = 'https://res.cloudinary.com/nap3orba/image/upload/v1790790986/pic_jrcoach.png';
 
 const teamData = [
   {
