@@ -78,6 +78,8 @@ const Gallery = () => {
         
         <div style={{ display: 'grid', gap: '40px' }}>
           {gallerySections.map((section, sectionIdx) => {
+            if (section.title === 'Academy Overview') return null;
+
             const playerOrder = section.title === 'Our Players'
               ? [
                   shooter5,

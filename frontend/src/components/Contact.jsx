@@ -10,8 +10,9 @@ const Contact = () => {
     program: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionStatus, setSubmissionStatus] = useState({ type: '', message: '' });
 
-  const emailAddress = 'pataudishooting@gmail.com';
   const academyAddress = 'Target Sports Shooting Academy, Safedar nagar Road, Pataudi, Haryana 122503, India';
   const academyDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(academyAddress)}`;
   const phoneNumbers = [
@@ -58,21 +59,40 @@ const Contact = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmissionStatus({ type: '', message: '' });
 
-    const subject = `Training Inquiry - ${formData.name || 'New Applicant'}`;
-    const body = [
-      `Name: ${formData.name}`,
-      `Email: ${formData.email}`,
-      `Phone: ${formData.phone}`,
-      `Program Interest: ${formData.program || 'Not specified'}`,
-      `Message: ${formData.message || 'No additional message provided'}`,
-    ].join('\n');
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      const result = await response.json().catch(() => null);
 
-    const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailAddress)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      if (!response.ok) {
+        setSubmissionStatus({
+          type: 'error',
+          message: result?.error || 'Unable to send your inquiry right now. Please try again later.',
+        });
+        return;
+      }
 
-    window.location.href = gmailComposeUrl;
+      setFormData({ name: '', email: '', phone: '', program: '', message: '' });
+      setSubmissionStatus({
+        type: 'success',
+        message: result?.message || 'Your inquiry has been sent.',
+      });
+    } catch {
+      setSubmissionStatus({
+        type: 'error',
+        message: 'Unable to reach the academy right now. Please try again later.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -109,6 +129,7 @@ const Contact = () => {
                 name="name"
                 placeholder="Full Name" 
                 className="fancy-input" 
+                maxLength={100}
                 value={formData.name}
                 onChange={handleChange}
                 required
@@ -119,6 +140,7 @@ const Contact = () => {
                 name="email"
                 placeholder="Email Address" 
                 className="fancy-input" 
+                maxLength={254}
                 value={formData.email}
                 onChange={handleChange}
                 required
@@ -129,6 +151,7 @@ const Contact = () => {
                 name="phone"
                 placeholder="Phone Number" 
                 className="fancy-input" 
+                maxLength={25}
                 value={formData.phone}
                 onChange={handleChange}
                 required
@@ -153,11 +176,23 @@ const Contact = () => {
                 placeholder="Tell us about your goals or questions"
                 className="fancy-input"
                 rows="5"
+                maxLength={2000}
                 style={{ resize: 'vertical', minHeight: '120px' }}
                 value={formData.message}
                 onChange={handleChange}
               />
-              <motion.button whileHover={{ y: -4, scale: 1.01 }} type="submit" className="btn btn-primary" style={{ marginTop: '10px' }}>Send Application</motion.button>
+              <motion.button whileHover={{ y: -4, scale: 1.01 }} type="submit" className="btn btn-primary" style={{ marginTop: '10px' }} disabled={isSubmitting}>
+                {isSubmitting ? 'Sending...' : 'Send Application'}
+              </motion.button>
+              {submissionStatus.message && (
+                <p
+                  role="status"
+                  aria-live="polite"
+                  style={{ color: submissionStatus.type === 'error' ? '#ff8b8b' : '#9ce6ae', margin: 0 }}
+                >
+                  {submissionStatus.message}
+                </p>
+              )}
               <p className="text-muted" style={{ marginTop: '10px', fontSize: '0.78rem', letterSpacing: '0.8px' }}>
                 Your details are used only for academy communication and are never shared publicly.
               </p>
