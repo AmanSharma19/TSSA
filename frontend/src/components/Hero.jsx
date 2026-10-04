@@ -125,7 +125,7 @@ const Hero = () => {
           zIndex: 10, 
           x: textParallaxX,
           y: textParallaxY,
-          marginTop: '8px'
+          marginTop: '96px'
         }}
         className="container"
       >
