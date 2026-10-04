@@ -4,9 +4,9 @@ import { X, ArrowLeft, ArrowRight } from 'lucide-react';
 const shooter1 = 'https://res.cloudinary.com/nap3orba/image/upload/v1790790987/shooter1.png';
 const shooter2 = 'https://res.cloudinary.com/nap3orba/image/upload/v1790790987/shooter2.png';
 const shooter3 = 'https://res.cloudinary.com/nap3orba/image/upload/v1790790987/shooter3.png';
-const shooter4 = 'https://res.cloudinary.com/nap3orba/image/upload/v1790790987/shooter4.png';
+const shooter4 = 'https://res.cloudinary.com/nap3orba/image/upload/v1791107297/Gemini_Generated_Image_khoph5khoph5khop.png';
 const shooter5 = 'https://res.cloudinary.com/nap3orba/image/upload/v1790790986/shooter5.png';
-const shooter6 = 'https://res.cloudinary.com/nap3orba/image/upload/v1790790986/shooter6.png';
+const shooter6 = 'https://res.cloudinary.com/nap3orba/image/upload/v1791107199/Gemini_Generated_Image_emex42emex42emex.png';
 const shooter7 = 'https://res.cloudinary.com/nap3orba/image/upload/v1790790987/shooter7.png';
 
 const coachAchiv1 = 'https://res.cloudinary.com/nap3orba/image/upload/v1790790984/coach_achiv1.jpg';
@@ -136,6 +136,7 @@ const Gallery = () => {
                             objectFit: 'cover',
                             objectPosition:
                               section.title === 'Coach\'s Achievements' && actualIndex === 1 ? 'center 12%' :
+                              section.title === 'Our Players' && img === shooter2 ? 'center 19%' :
                               section.title === 'Our Players' && actualIndex < 4 ? 'center 5%' :
                               section.title === 'Our Players' ? 'center 8%' : 'center',
                             width: '100%',

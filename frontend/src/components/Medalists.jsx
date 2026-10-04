@@ -40,7 +40,7 @@ const shooters = [
     name: 'Moksh',
     achievement: 'National Qualifier',
     image:
-      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80',
+      'https://res.cloudinary.com/nap3orba/image/upload/v1791107297/Gemini_Generated_Image_khoph5khoph5khop.png',
     highlights: [
       '2024 • 13th rank in 26th All India KKSS Inter School Shooting Championship',
       '2025 • 27th Rank in 27th AKKSS Inter School',
@@ -51,7 +51,7 @@ const shooters = [
     name: 'Riya',
     achievement: 'District Medalist',
     image:
-      'https://res.cloudinary.com/nap3orba/image/upload/v1790790986/shooter6.png',
+      'https://res.cloudinary.com/nap3orba/image/upload/v1791107199/Gemini_Generated_Image_emex42emex42emex.png',
     highlights: [
       '2024 & 2025 • Participated in 67th & 68th National Shooting Championship',
       '2025 • 3rd Rank in SGFI Inter School District Championship (U-19 Girls)'
@@ -88,12 +88,12 @@ const Medalists = () => {
           transition={{ duration: 0.8 }}
           className="section-heading"
         >
-          <span className="hero-elite-chip medalists-chip">Recent medalists</span>
+          <span className="hero-elite-chip medalists-chip">Recent achievements</span>
           <h2 className="text-gold" style={{ fontSize: '3rem', marginTop: '16px' }}>
-            Recent Champions
+            Recent Achievements
           </h2>
           <p className="text-muted" style={{ maxWidth: '720px', margin: '0 auto', fontSize: '1.05rem' }}>
-            Five of our latest shooters have qualified and earned medals in recent competitions, proving the academy’s commitment to growth, mastery, and consistent performance.
+            Our athletes continue to rise on the national stage, earning medals, qualification calls, and competitive experience through dedication, discipline, and consistent performance.
           </p>
         </motion.div>
 

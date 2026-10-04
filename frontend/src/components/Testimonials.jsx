@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const testimonials = [
-  { quote: "The coaching at TSSA transformed my amateur skills into competition-ready precision. Elite in every way.", author: "James Peterson" },
-  { quote: "State-of-the-art facilities and coaches who genuinely care about every single detail of your form.", author: "Sarah Jenkins" },
-  { quote: "I've trained all over the world, but the discipline instilled here is unmatched. TSSA is top tier.", author: "Michael Chang" }
+  { quote: "I used to feel nervous before every practice, but here I learned to stay calm and focus on the basics. The coaching really changed the way I train.", author: "Khushi" },
+  { quote: "What I like most is how detailed the training is. Every small correction matters, and that has helped me improve a lot in a short time.", author: "Mitansh" },
+  { quote: "The atmosphere here feels serious but encouraging. I’ve become more disciplined and more confident in my shooting because the coaches push us in the right way.", author: "Priyanka" }
 ];
 
 const Testimonials = () => {
