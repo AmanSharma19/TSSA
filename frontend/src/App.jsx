@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Medalists from './components/Medalists';
 import About from './components/About';
 import Programs from './components/Programs';
 import VirtualRange from './components/VirtualRange';
@@ -82,6 +83,7 @@ function App() {
       </div>
       <Navbar />
       <Hero />
+      <Medalists />
       <About />
       <Programs />
       <VirtualRange />
