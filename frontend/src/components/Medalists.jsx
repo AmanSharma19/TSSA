@@ -17,7 +17,7 @@ const shooters = [
     name: 'Mitansh Yadav',
     achievement: 'District & State Competitor',
     image:
-      'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80',
+      'https://res.cloudinary.com/nap3orba/image/upload/v1791106220/Screenshot_2026-10-04_145951.png',
     highlights: [
       '2025 • 3rd Rank in SGFI inter school District Championship (U-14 Boys)',
       '2025 • Participated in SGFI Haryana State Championship',
@@ -65,7 +65,7 @@ const Medalists = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((current) => (current + 1) % shooters.length);
-    }, 3500);
+    }, 5200);
 
     return () => clearInterval(interval);
   }, []);
@@ -106,7 +106,7 @@ const Medalists = () => {
             <motion.div
               className="medalists-track"
               animate={{ x: `-${activeIndex * 100}%` }}
-              transition={{ duration: 0.7, ease: 'easeInOut' }}
+              transition={{ duration: 1.1, ease: 'easeInOut' }}
             >
               {shooters.map((shooter) => (
                 <div className="medalist-slide" key={shooter.name}>

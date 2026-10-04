@@ -61,7 +61,7 @@ const Hero = () => {
       onMouseMove={handleMouseMove}
       className="section" 
       style={{ 
-        minHeight: '78vh',
+        minHeight: '86vh',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -69,7 +69,7 @@ const Hero = () => {
         position: 'relative',
         paddingTop: '0px',
         paddingBottom: '0px',
-        marginTop: '-18px',
+        marginTop: '0px',
         boxSizing: 'border-box'
       }}
     >
@@ -125,7 +125,7 @@ const Hero = () => {
           zIndex: 10, 
           x: textParallaxX,
           y: textParallaxY,
-          marginTop: '-42px'
+          marginTop: '8px'
         }}
         className="container"
       >
